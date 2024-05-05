@@ -6,6 +6,10 @@ class Beranda extends CI_Controller
         parent::__construct();
         $this->load->helper(array('url', 'form'));
         $this->load->library('upload');
+		$this->load->library('session');
+		if (!$this->session->userdata('email')){
+			return redirect('/auth');
+		}
     }
     public function index()
     {

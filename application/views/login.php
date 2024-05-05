@@ -1,24 +1,25 @@
 <?php
-// Username dan password
-$correct_username = "admin@gmail.com";
-$correct_password = "pass123";
+// // Username dan password
+// $correct_username = "admin@gmail.com";
+// $correct_password = "pass123";
 
-// Memeriksa apakah form udh disubmit
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Mengambil data dari form
-    $input_username = $_POST["username"];
-    $input_password = $_POST["password"];
+// // Memeriksa apakah form udh disubmit
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//     // Mengambil data dari form
+//     $input_username = $_POST["email"];
+//     $input_password = $_POST["password"];
 
-    // Memeriksa apakah input pengguna cocok dengan username dan password yang benar
-    if ($input_username == $correct_username && $input_password == $correct_password) {
-        // Jika cocok, redirect ke halaman selamat datang
-        header("Location: ");
-        exit();
-    } else {
-        // Jika tidak cocok, menampilkan pesan error
-        echo "Username atau password salah.";
-    }
-}
+//     // Memeriksa apakah input pengguna cocok dengan username dan password yang benar
+//     if ($input_username == $correct_username && $input_password == $correct_password) {
+//         // Jika cocok, redirect ke halaman selamat datang
+//         header("Location: ");
+// 		// echo "Login berhasil";
+//         exit();
+//     } else {
+//         // Jika tidak cocok, menampilkan pesan error
+//         echo "Username atau password salah.";
+//     }
+// }
 ?>
 
 <!DOCTYPE html>
@@ -111,8 +112,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <h4 class="font-weight-bolder">Sign In</h4>
                                     <p class="mb-0">Enter your email and password to sign in</p>
                                 </div>
+								<?php if($this->session->flashdata('error')): ?>
+								<div class="alert alert-danger">
+									<?= $this->session->flashdata('error'); ?>
+								</div>
+								<?php endif; ?>
                                 <div class="card-body">
-                                    <form role="form">
+                                    <form role="form" method="post" action="/auth/authorize">
                                         <div class="mb-3">
                                             <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Email" aria-label="Email">
                                         </div>
