@@ -112,13 +112,13 @@
                                     <h4 class="font-weight-bolder">Sign In</h4>
                                     <p class="mb-0">Enter your email and password to sign in</p>
                                 </div>
-								<?php if($this->session->flashdata('error')): ?>
-								<div class="alert alert-danger">
-									<?= $this->session->flashdata('error'); ?>
-								</div>
-								<?php endif; ?>
+                                <?php if ($this->session->flashdata('error')) : ?>
+                                    <div class="alert alert-danger">
+                                        <?= $this->session->flashdata('error'); ?>
+                                    </div>
+                                <?php endif; ?>
                                 <div class="card-body">
-                                    <form role="form" method="post" action="/auth/authorize">
+                                    <form role="form" method="post" action="<?= base_url("auth/authorize") ?>">
                                         <div class="mb-3">
                                             <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Email" aria-label="Email">
                                         </div>
