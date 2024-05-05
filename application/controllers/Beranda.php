@@ -468,8 +468,8 @@ class Beranda extends CI_Controller
         // Load data penjualan berdasarkan ID
         $data['tb_penjualan'] = $this->Tokobuku_model->get_data_penjualan($id_penjualan);
         $this->load->view('template/head');
-        $this->load->view('template/navbar');
         $this->load->view('template/sidebar');
+        $this->load->view('template/navbar');
         $this->load->view('penjualan_invoice', $data);
         $this->load->view('template/footer');
 
