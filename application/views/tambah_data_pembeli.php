@@ -1,7 +1,7 @@
 <div class="content">
     <div class="container">
         <div class="card">
-        <div class="card-header">
+            <div class="card-header">
                 <h5>Tambah Data Pembeli</h5>
             </div>
             <div class="card-header">
@@ -15,6 +15,10 @@
                         <input type="text" id="NamaPembeli" name="Nama_Pembeli" class="form-control" placeholder="Nama Pembeli" required>
                     </div>
                     <div class="form-group">
+                        <label for="NoTelp">Nomor Telpon</label>
+                        <input type="text" id="NoTelp" name="No_Telp" class="form-control" placeholder="Nomor Telpon" required>
+                    </div>
+                    <div class="form-group">
                         <label for="Alamat">Alamat</label>
                         <textarea id="Alamat" name="Alamat" class="form-control" placeholder="Alamat" required></textarea>
                     </div>
@@ -23,5 +27,6 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+    </body>
+
+    </html>

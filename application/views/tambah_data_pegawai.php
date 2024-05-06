@@ -11,6 +11,10 @@
                 <!-- Form input -->
                 <form action="<?php echo site_url('beranda/simpan_pegawai') ?>" method="post" enctype="multipart/form-data">
                     <div class="form-group">
+                        <label for="IdPegawai">Id Pegawai</label>
+                        <input type="text" id="IdPegawai" name="Id_Pegawai" class="form-control" placeholder="Nama Pegawai" required>
+                    </div>
+                    <div class="form-group">
                         <label for="NamaPegawai">Nama Pegawai</label>
                         <input type="text" id="NamaPegawai" name="Nama_Pegawai" class="form-control" placeholder="Nama Pegawai" required>
                     </div>

@@ -6,10 +6,10 @@ class Beranda extends CI_Controller
         parent::__construct();
         $this->load->helper(array('url', 'form'));
         $this->load->library('upload');
-		$this->load->library('session');
-		if (!$this->session->userdata('email')){
-			return redirect('/auth');
-		}
+        $this->load->library('session');
+        if (!$this->session->userdata('email')) {
+            return redirect('/auth');
+        }
     }
     public function index()
     {
@@ -203,8 +203,8 @@ class Beranda extends CI_Controller
         $data['tb_pegawai'] = $this->Tokobuku_model->get_data_pegawai($id_pegawai);
 
         $this->load->view("template/head");
-        $this->load->view("template/navbar");
         $this->load->view("template/sidebar");
+        $this->load->view("template/navbar");
         $this->load->view("edit_pegawai", $data);
         $this->load->view("template/footer");
     }
@@ -253,8 +253,8 @@ class Beranda extends CI_Controller
         $data['tb_pembeli'] = $this->Tokobuku_model->get_data_pembeli($id_pembeli);
 
         $this->load->view("template/head");
-        $this->load->view("template/navbar");
         $this->load->view("template/sidebar");
+        $this->load->view("template/navbar");
         $this->load->view("edit_pembeli", $data);
         $this->load->view("template/footer");
     }
@@ -283,8 +283,8 @@ class Beranda extends CI_Controller
         $data['tb_buku'] = $this->Tokobuku_model->get_data_buku($id_buku);
 
         $this->load->view("template/head");
-        $this->load->view("template/navbar");
         $this->load->view("template/sidebar");
+        $this->load->view("template/navbar");
         $this->load->view("edit_buku", $data);
         $this->load->view("template/footer");
     }
@@ -433,8 +433,8 @@ class Beranda extends CI_Controller
 
 
         $this->load->view("template/head");
-        $this->load->view("template/navbar");
         $this->load->view("template/sidebar");
+        $this->load->view("template/navbar");
         $this->load->view("edit_penjualan", $data);
         $this->load->view("template/footer");
     }
