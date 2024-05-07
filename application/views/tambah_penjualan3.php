@@ -61,7 +61,7 @@
               <a onclick="myFunc()" class="btn btn-primary rounded-pill">Tambah Pesanan Baru</a>
             </div>
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="NamaBuku">Judul Buku</label>
             <select class="form-control" id="NamaBuku" name="Nama_Buku" required>
               <option value="">-Pilih-</option>
@@ -78,7 +78,7 @@
                 <option value="<?= $harga->harga_buku ?>"><?= $harga->harga_buku ?></option>
               <?php endforeach; ?>
             </select>
-          </div>
+          </div> -->
           <button type="submit" class="btn btn-primary">Simpan</button>
         </form>
       </div>

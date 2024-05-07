@@ -373,7 +373,7 @@ class Beranda extends CI_Controller
         $this->load->view('template/navbar', [
             'page' => 'Tambah Data Penjualan',
         ]);
-        $this->load->view('tambah_penjualan', $data);
+        $this->load->view('tambah_penjualan3', $data);
         $this->load->view('template/footer');
     }
     public function simpan_penjualan()
@@ -381,34 +381,37 @@ class Beranda extends CI_Controller
         $namaPembeliId = $this->input->post('Nama_Pembeli', true);
         $namaPegawaiId = $this->input->post('Nama_Pegawai', true);
         $judulBukuId = $this->input->post('Nama_Buku', true);
-        $hargaBuku = $this->input->post('Harga_Buku', true);
-
-        // Ambil data sesuai ID dari masing-masing tabel
-        $pembeli = $this->Tokobuku_model->get_nama_pembeli_by_id($namaPembeliId);
-        $pegawai = $this->Tokobuku_model->get_nama_pegawai_by_id($namaPegawaiId);
-        $judulBuku = $this->Tokobuku_model->get_judul_buku_by_id($judulBukuId);
-
-        // Pastikan data yang diperoleh tidak kosong sebelum dimasukkan ke dalam $data
-        if ($pembeli && $pegawai && $judulBuku) {
-            $data = array(
-                'pembeli' => $pembeli->nama_pembeli,
-                'pegawai' => $pegawai->nama_pegawai,
-                'judul' => $judulBuku->judul_buku,
-                'harga' => $hargaBuku,
-            );
-        } else {
-            // Handle jika data kosong atau tidak ditemukan
-            echo 'Data tidak ditemukan';
-            return; // Berhenti proses penyimpanan jika data tidak ditemukan
-        }
+        // $hargaBuku = $this->input->post('Harga_Buku', true);
 
 
-        $insert = $this->Tokobuku_model->simpan_data_penjualan('tb_penjualan', $data);
-        if ($insert > 0) {
-            redirect('beranda/data_penjualan');
-        } else {
-            echo 'Gagal Disimpan';
-        }
+		foreach ($judulBukuId as $judul){
+			// Ambil data sesuai ID dari masing-masing tabel
+			$pembeli = $this->Tokobuku_model->get_nama_pembeli_by_id($namaPembeliId);
+			$pegawai = $this->Tokobuku_model->get_nama_pegawai_by_id($namaPegawaiId);
+			$dataBuku = $this->Tokobuku_model->get_data_buku_by_id($judul);
+	
+			// Pastikan data yang diperoleh tidak kosong sebelum dimasukkan ke dalam $data
+			if ($pembeli && $pegawai && $dataBuku) {
+				$data = array(
+					'pembeli' => $pembeli->nama_pembeli,
+					'pegawai' => $pegawai->nama_pegawai,
+					'judul' => $dataBuku->judul_buku,
+					'harga' => $dataBuku->harga_buku,
+				);
+			} else {
+				// Handle jika data kosong atau tidak ditemukan
+				echo 'Data tidak ditemukan';
+				return; // Berhenti proses penyimpanan jika data tidak ditemukan
+			}
+	
+	
+			$insert = $this->Tokobuku_model->simpan_data_penjualan('tb_penjualan', $data);
+			if ($insert > 0) {
+			} else {
+				echo 'Gagal Disimpan';
+			}
+		}
+		redirect('beranda/data_penjualan');
     }
 
     public function del_penjualan($id_penjualan)

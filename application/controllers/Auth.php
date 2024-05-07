@@ -27,9 +27,7 @@ class Auth extends CI_Controller
 			];
 
 			$this->session->set_userdata($userData);
-			return redirect("/");
-			// echo "Login berhasil";
-			exit();
+			return redirect("/",'location');
 		} else {
 			// Jika tidak cocok, menampilkan pesan error
 			$this->session->set_flashdata('error', 'Username atau password salah');

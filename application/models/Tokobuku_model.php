@@ -108,6 +108,15 @@ class Tokobuku_model extends CI_Model
         $query = $this->db->get('tb_buku');
         return $query->row();
     }
+	
+	function get_data_buku_by_id($id_buku) {
+		$this->db->select('*');
+		$this->db->where('id_buku', $id_buku);
+		$query = $this->db->get('tb_buku');
+		return $query->row();
+		
+	}
+
     public function pjDelete($id_penjualan)
     {
         $this->db->where('id_penjualan',$id_penjualan);
