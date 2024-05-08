@@ -204,7 +204,9 @@ class Beranda extends CI_Controller
 
         $this->load->view("template/head");
         $this->load->view("template/sidebar");
-        $this->load->view("template/navbar");
+        $this->load->view('template/navbar', [
+            'page' => 'Edit Data Pegawai',
+        ]);
         $this->load->view("edit_pegawai", $data);
         $this->load->view("template/footer");
     }
@@ -254,7 +256,9 @@ class Beranda extends CI_Controller
 
         $this->load->view("template/head");
         $this->load->view("template/sidebar");
-        $this->load->view("template/navbar");
+        $this->load->view('template/navbar', [
+            'page' => 'Edit Data Pembeli',
+        ]);
         $this->load->view("edit_pembeli", $data);
         $this->load->view("template/footer");
     }
@@ -284,7 +288,9 @@ class Beranda extends CI_Controller
 
         $this->load->view("template/head");
         $this->load->view("template/sidebar");
-        $this->load->view("template/navbar");
+        $this->load->view('template/navbar', [
+            'page' => 'Edit Data Buku',
+        ]);
         $this->load->view("edit_buku", $data);
         $this->load->view("template/footer");
     }
@@ -384,34 +390,34 @@ class Beranda extends CI_Controller
         // $hargaBuku = $this->input->post('Harga_Buku', true);
 
 
-		foreach ($judulBukuId as $judul){
-			// Ambil data sesuai ID dari masing-masing tabel
-			$pembeli = $this->Tokobuku_model->get_nama_pembeli_by_id($namaPembeliId);
-			$pegawai = $this->Tokobuku_model->get_nama_pegawai_by_id($namaPegawaiId);
-			$dataBuku = $this->Tokobuku_model->get_data_buku_by_id($judul);
-	
-			// Pastikan data yang diperoleh tidak kosong sebelum dimasukkan ke dalam $data
-			if ($pembeli && $pegawai && $dataBuku) {
-				$data = array(
-					'pembeli' => $pembeli->nama_pembeli,
-					'pegawai' => $pegawai->nama_pegawai,
-					'judul' => $dataBuku->judul_buku,
-					'harga' => $dataBuku->harga_buku,
-				);
-			} else {
-				// Handle jika data kosong atau tidak ditemukan
-				echo 'Data tidak ditemukan';
-				return; // Berhenti proses penyimpanan jika data tidak ditemukan
-			}
-	
-	
-			$insert = $this->Tokobuku_model->simpan_data_penjualan('tb_penjualan', $data);
-			if ($insert > 0) {
-			} else {
-				echo 'Gagal Disimpan';
-			}
-		}
-		redirect('beranda/data_penjualan');
+        foreach ($judulBukuId as $judul) {
+            // Ambil data sesuai ID dari masing-masing tabel
+            $pembeli = $this->Tokobuku_model->get_nama_pembeli_by_id($namaPembeliId);
+            $pegawai = $this->Tokobuku_model->get_nama_pegawai_by_id($namaPegawaiId);
+            $dataBuku = $this->Tokobuku_model->get_data_buku_by_id($judul);
+
+            // Pastikan data yang diperoleh tidak kosong sebelum dimasukkan ke dalam $data
+            if ($pembeli && $pegawai && $dataBuku) {
+                $data = array(
+                    'pembeli' => $pembeli->nama_pembeli,
+                    'pegawai' => $pegawai->nama_pegawai,
+                    'judul' => $dataBuku->judul_buku,
+                    'harga' => $dataBuku->harga_buku,
+                );
+            } else {
+                // Handle jika data kosong atau tidak ditemukan
+                echo 'Data tidak ditemukan';
+                return; // Berhenti proses penyimpanan jika data tidak ditemukan
+            }
+
+
+            $insert = $this->Tokobuku_model->simpan_data_penjualan('tb_penjualan', $data);
+            if ($insert > 0) {
+            } else {
+                echo 'Gagal Disimpan';
+            }
+        }
+        redirect('beranda/data_penjualan');
     }
 
     public function del_penjualan($id_penjualan)
@@ -437,7 +443,9 @@ class Beranda extends CI_Controller
 
         $this->load->view("template/head");
         $this->load->view("template/sidebar");
-        $this->load->view("template/navbar");
+        $this->load->view('template/navbar', [
+            'page' => 'Edit Data Penjualan',
+        ]);
         $this->load->view("edit_penjualan", $data);
         $this->load->view("template/footer");
     }
@@ -476,7 +484,9 @@ class Beranda extends CI_Controller
         $data['tb_penjualan'] = $this->Tokobuku_model->get_data_penjualan($id_penjualan);
         $this->load->view('template/head');
         $this->load->view('template/sidebar');
-        $this->load->view('template/navbar');
+        $this->load->view('template/navbar', [
+            'page' => 'Detail Invoice',
+        ]);
         $this->load->view('penjualan_invoice', $data);
         $this->load->view('template/footer');
 

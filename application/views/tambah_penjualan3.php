@@ -26,8 +26,17 @@
                 <option value="<?= $pegawai->id_pegawai ?>"><?= $pegawai->nama_pegawai ?></option>
               <?php endforeach; ?>
             </select>
+            <div class="form-group">
+              <label for="NamaBuku">Judul Buku</label>
+              <select class="form-control" id="NamaBuku" name="Nama_Buku[]" required>
+                <option value="">-Pilih-</option>
+                <?php foreach ($tb_buku as $buku) : ?>
+                  <option value="<?= $buku->id_buku ?>"><?= $buku->judul_buku ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
           </div>
-          <table class="table table-bordered mt-3" id="rundownTable">
+          <!-- <table class="table table-bordered mt-3" id="rundownTable">
             <thead>
               <td style="width: 70%">
                 Judul Buku
@@ -46,21 +55,21 @@
                       <option value="<?= $buku->id_buku ?>"><?= $buku->judul_buku ?></option>
                     <?php endforeach; ?>
                   </select>
-                </td>
+                </td> -->
 
 
 
-                <td>
+          <!-- <td>
                   <a href="" class="btn btn-danger container-fluid">Delete</a>
                 </td>
               </tr>
-            </tbody>
+            </tbody> -->
           </table>
-          <div class="d-flex flex-row-reverse">
+          <!-- <div class="d-flex flex-row-reverse">
             <div class="p-2">
               <a onclick="myFunc()" class="btn btn-primary rounded-pill">Tambah Pesanan Baru</a>
             </div>
-          </div>
+          </div> -->
           <!-- <div class="form-group">
             <label for="NamaBuku">Judul Buku</label>
             <select class="form-control" id="NamaBuku" name="Nama_Buku" required>
@@ -103,28 +112,28 @@
     selectElement.name = "Nama_Buku[]";
     selectElement.required = true;
 
-    // Create default option
-    var defaultOption = document.createElement("option");
-    defaultOption.value = "";
-    defaultOption.text = "-Pilih-";
-    selectElement.appendChild(defaultOption);
+    //   // Create default option
+    //   var defaultOption = document.createElement("option");
+    //   defaultOption.value = "";
+    //   defaultOption.text = "-Pilih-";
+    //   selectElement.appendChild(defaultOption);
 
-    // Add options dynamically
-    <?php foreach ($tb_buku as $buku) : ?>
-      var option = document.createElement("option");
-      option.value = "<?= $buku->id_buku ?>";
-      option.text = "<?= $buku->judul_buku ?>";
-      selectElement.appendChild(option);
-    <?php endforeach; ?>
+    //   // Add options dynamically
+    //   <?php foreach ($tb_buku as $buku) : ?>
+    //     var option = document.createElement("option");
+    //     option.value = "<?= $buku->id_buku ?>";
+    //     option.text = "<?= $buku->judul_buku ?>";
+    //     selectElement.appendChild(option);
+    //   <?php endforeach; ?>
 
-    buku.appendChild(selectElement);
+    //   buku.appendChild(selectElement);
 
-    action.innerHTML = "<a onclick='myDeleteFunction(" + count + ")' class='btn btn-danger container-fluid'>Delete</a>";
-  }
+    //   action.innerHTML = "<a onclick='myDeleteFunction(" + count + ")' class='btn btn-danger container-fluid'>Delete</a>";
+    // }
 
-  function myDeleteFunction(row) {
-    count--;
-    console.log(row + " test");
-    document.getElementById("rundownTable").deleteRow(row);
-  }
+    // function myDeleteFunction(row) {
+    //   count--;
+    //   console.log(row + " test");
+    //   document.getElementById("rundownTable").deleteRow(row);
+    // }
 </script>

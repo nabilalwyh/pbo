@@ -24,7 +24,7 @@
                                     <tr>
                                         <td><?php echo $no ?></td>
                                         <td><?php echo $res->nama_pembeli ?></td>
-                                        <td><?php echo $no_telp ?></td>
+                                        <td><?php echo $res->no_telp ?></td>
                                         <td><?php echo $res->alamat ?></td>
                                         <td>
                                             <a href="<?= site_url('beranda/edit_pembeli/' . $res->id_pembeli) ?>" class="btn btn-outline-warning btn-sm"><i class="fas fa-pen"></i>Edit</a>
