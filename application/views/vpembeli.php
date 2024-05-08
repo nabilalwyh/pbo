@@ -11,7 +11,7 @@
                         <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>NO</th>
+                                    <th>No</th>
                                     <th>Nama Pembeli</th>
                                     <th>Nomor Telpon</th>
                                     <th>Alamat</th>

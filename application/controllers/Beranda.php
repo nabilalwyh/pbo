@@ -100,6 +100,7 @@ class Beranda extends CI_Controller
     {
         $data = array(
             'nama_pembeli' => $this->input->post('Nama_Pembeli', true),
+            'no_telp' => $this->input->post('No_Telp', true),
             'alamat' => $this->input->post('Alamat', true),
         );
 
