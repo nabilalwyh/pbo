@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Get to Know Us!</h4>
                         <p class="card-text">SecondStory Books adalah toko buku bekas dengan harga pas, namun berkualitas.</p>
-                        <p class="card-text">Stok terbatas! Setiap buku hanya ada satu, jadi jangan lewatkan kesempatan untuk memiliki cerita unik ini.</p>
+                        <p class="card-text">Stok terbatas! Untuk satu kali tarnsaksi hanya dapat membeli satu item.</p>
                         <hr>
                         <p class="card-text mb-0">Terima Kasih</p>
                     </div>
