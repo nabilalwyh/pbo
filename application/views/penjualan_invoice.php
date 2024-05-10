@@ -30,7 +30,15 @@
                                     <td><?= $tb_penjualan->judul ?></td>
                                 </tr>
                                 <tr>
+                                    <th>Jumlah Buku:</th>
+                                    <td><?= $tb_penjualan->jumlah ?></td>
+                                </tr>
+                                <tr>
                                     <th>Harga Buku:</th>
+                                    <td>Rp. <?= number_format($tb_penjualan->harga_satuan, 0, ',', '.') ?>,00</td>
+                                </tr>
+                                <tr>
+                                    <th>Total Harga Buku:</th>
                                     <td>Rp. <?= number_format($tb_penjualan->harga, 0, ',', '.') ?>,00</td>
                                 </tr>
                             </table>

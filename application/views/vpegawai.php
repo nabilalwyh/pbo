@@ -25,7 +25,7 @@
                                         <td><?php echo $no ?></td>
                                         <td><?php echo $res->id_pegawai ?></td>
                                         <td><?php echo $res->nama_pegawai ?></td>
-                                        <td><img src="<?= base_url() ?>assets/gambarbuku/<?= $res->gambar_pegawai; ?>" width="100" height="100" alt=""></td>
+                                        <td><img src="<?= base_url() ?>assets/pegawai/<?= $res->gambar_pegawai; ?>" width="100" height="100" alt=""></td>
                                         <td>
                                             <a href="<?= site_url('beranda/edit_pegawai/' . $res->id_pegawai) ?>" class="btn btn-outline-warning btn-sm"><i class="fas fa-pen"></i>Edit</a>
                                             <a href="<?php echo site_url('beranda/del_pegawai/' . $res->id_pegawai); ?>" class="btn btn-outline-danger btn-sm delete-btn" onclick="return confirmDelete()"><i class="fas fa-trash"></i>Delete</a>

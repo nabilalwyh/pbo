@@ -1,0 +1,2 @@
+# Mengabaikan perbedaan EOL pada file PHP
+*.php text eol=lf

@@ -35,6 +35,10 @@
                 <?php endforeach; ?>
               </select>
             </div>
+            <div class="form-group">
+              <label for="JumlahBuku">Jumlah Buku</label>
+              <input type="text" id="JumlahBuku" name="Jumlah_Buku" class="form-control" placeholder="Jumlah Buku" required>
+            </div>
           </div>
           <!-- <table class="table table-bordered mt-3" id="rundownTable">
             <thead>

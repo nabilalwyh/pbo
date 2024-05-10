@@ -44,7 +44,7 @@ class Beranda extends CI_Controller
     }
     public function simpan_pegawai()
     {
-        $config['upload_path'] = './assets/gambarbuku/';
+        $config['upload_path'] = './assets/pegawai/';
         $config['allowed_types'] = 'gif|jpg|jpeg|png';
         $config['max_size'] = 5120;
 
@@ -147,7 +147,7 @@ class Beranda extends CI_Controller
         $this->upload->initialize($config);
 
         $id_buku = $this->input->post('Id_Buku', true);
-        $judul_buku = $this->input->post('Nama_Buku', true);
+        $judul_buku = $this->input->post('Judul_Buku', true);
         $penulis = $this->input->post('Nama_Penulis', true);
         $harga_buku = $this->input->post('Harga_Buku', true);
 
@@ -214,7 +214,7 @@ class Beranda extends CI_Controller
 
     public function update_pegawai($id_pegawai)
     {
-        $config['upload_path'] = './assets/gambarbuku/';
+        $config['upload_path'] = './assets/pegawai/';
         $config['allowed_types'] = 'gif|jpg|jpeg|png';
         $config['max_size'] = 5120;
 
@@ -388,10 +388,9 @@ class Beranda extends CI_Controller
         $namaPembeliId = $this->input->post('Nama_Pembeli', true);
         $namaPegawaiId = $this->input->post('Nama_Pegawai', true);
         $judulBukuId = $this->input->post('Nama_Buku', true);
-        // $hargaBuku = $this->input->post('Harga_Buku', true);
+        $jumlahBuku = $this->input->post('Jumlah_Buku', true);
 
-
-        foreach ($judulBukuId as $judul) {
+        foreach ($judulBukuId as $key => $judul) {
             // Ambil data sesuai ID dari masing-masing tabel
             $pembeli = $this->Tokobuku_model->get_nama_pembeli_by_id($namaPembeliId);
             $pegawai = $this->Tokobuku_model->get_nama_pegawai_by_id($namaPegawaiId);
@@ -403,7 +402,9 @@ class Beranda extends CI_Controller
                     'pembeli' => $pembeli->nama_pembeli,
                     'pegawai' => $pegawai->nama_pegawai,
                     'judul' => $dataBuku->judul_buku,
-                    'harga' => $dataBuku->harga_buku,
+                    'harga_satuan' => $dataBuku->harga_buku,
+                    'harga' => $dataBuku->harga_buku * $jumlahBuku[$key], // Hitung harga total
+                    'jumlah' => $jumlahBuku[$key], // Simpan jumlah buku yang dibeli
                 );
             } else {
                 // Handle jika data kosong atau tidak ditemukan
@@ -411,15 +412,15 @@ class Beranda extends CI_Controller
                 return; // Berhenti proses penyimpanan jika data tidak ditemukan
             }
 
-
             $insert = $this->Tokobuku_model->simpan_data_penjualan('tb_penjualan', $data);
-            if ($insert > 0) {
-            } else {
+            if (!$insert) {
                 echo 'Gagal Disimpan';
+                return;
             }
         }
         redirect('beranda/data_penjualan');
     }
+
 
     public function del_penjualan($id_penjualan)
     {

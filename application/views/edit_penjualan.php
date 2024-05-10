@@ -23,7 +23,7 @@
                         <label for="NamaPegawai">Nama Pegawai</label>
                         <select class="form-control" id="NamaPegawai" name="Nama_Pegawai" required>
                             <?php foreach ($tb_pegawai as $pegawai) : ?>
-                                <option value="<?=$pegawai->nama_pegawai ?>" <?= ($pegawai->nama_pegawai == $tb_penjualan->pegawai) ? 'selected="selected"' : '' ?>>
+                                <option value="<?= $pegawai->nama_pegawai ?>" <?= ($pegawai->nama_pegawai == $tb_penjualan->pegawai) ? 'selected="selected"' : '' ?>>
                                     <?= $pegawai->nama_pegawai ?>
                                 </option>
                             <?php endforeach; ?>
@@ -33,7 +33,7 @@
                         <label for="NamaBuku">Judul Buku</label>
                         <select class="form-control" id="NamaBuku" name="Nama_Buku" required>
                             <?php foreach ($tb_buku as $buku) : ?>
-                                <option value="<?=$buku->judul_buku ?>" <?= ($buku->judul_buku == $tb_penjualan->judul) ? 'selected="selected"' : '' ?>>
+                                <option value="<?= $buku->judul_buku ?>" <?= ($buku->judul_buku == $tb_penjualan->judul) ? 'selected="selected"' : '' ?>>
                                     <?= $buku->judul_buku ?>
                                 </option>
                             <?php endforeach; ?>
@@ -55,5 +55,3 @@
         </div>
     </div>
 </div>
-
-
